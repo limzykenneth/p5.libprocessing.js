@@ -2,16 +2,23 @@
   "name": "p5.libprocessing.js",
   "version": "0.0.0",
   "description": "libprocessing renderer for p5.js",
+  "license": "MIT",
+  "author": "",
   "type": "module",
   "exports": {
     ".": "./dist/p5.libprocessing.esm.js"
   },
   "scripts": {
-    "build": "rolldown -c rolldown.config.ts"
+    "build": "rolldown -c rolldown.config.ts",
+    "prepare": "vp config"
   },
-  "author": "",
-  "license": "MIT",
   "devDependencies": {
-    "rolldown": "^1.0.0-rc.18"
-  }
+    "rolldown": "^1.0.0-rc.18",
+    "vite-plus": "latest"
+  },
+  "overrides": {
+    "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+    "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+  },
+  "packageManager": "npm@11.13.0"
 }
