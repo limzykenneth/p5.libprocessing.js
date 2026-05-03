@@ -1,0 +1,17 @@
+{
+  "name": "p5.libprocessing.js",
+  "version": "0.0.0",
+  "description": "libprocessing renderer for p5.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/p5.libprocessing.esm.js"
+  },
+  "scripts": {
+    "build": "rolldown -c rolldown.config.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "rolldown": "^1.0.0-rc.18"
+  }
+}
