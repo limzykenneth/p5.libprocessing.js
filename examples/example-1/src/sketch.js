@@ -1,5 +1,6 @@
 function setup() {
-  createCanvas(400, 400, 'custom-renderer');
+  createCanvas(400, 400, "libprocessing");
+  noLoop();
 }
 
 function draw() {

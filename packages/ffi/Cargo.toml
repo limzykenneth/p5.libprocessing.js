@@ -1,0 +1,32 @@
+
+[package]
+authors = ["Kenneth Lim <limzy.kenneth@gmail.com>"]
+edition = "2021"
+name    = "p5_libprocessing_ffi"
+version = "0.1.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+bevy = { git = "https://github.com/processing/bevy", branch = "main", features = [
+  "file_watcher",
+  "shader_format_wesl",
+  "free_camera",
+  "pan_camera",
+] }
+napi = { version = "3.0.0", features = ["anyhow"] }
+napi-derive = "3.0.0"
+processing = { version = "0.0.1", path = "../../../libprocessing", features = [
+  "wayland",
+] }
+
+[patch."https://github.com/bevyengine/bevy"]
+bevy = { git = "https://github.com/processing/bevy", branch = "main" }
+
+[build-dependencies]
+napi-build = "2"
+
+[profile.release]
+lto   = true
+strip = "symbols"

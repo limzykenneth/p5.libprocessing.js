@@ -4,6 +4,9 @@
   "description": "libprocessing renderer for p5.js",
   "license": "MIT",
   "author": "",
+  "workspaces": [
+    "packages/*"
+  ],
   "type": "module",
   "exports": {
     ".": "./dist/p5.libprocessing.esm.js"
@@ -11,6 +14,9 @@
   "scripts": {
     "build": "rolldown -c rolldown.config.ts",
     "prepare": "vp config"
+  },
+  "dependencies": {
+    "p5": "https://pkg.pr.new/p5@399426f"
   },
   "devDependencies": {
     "rolldown": "^1.0.0-rc.18",

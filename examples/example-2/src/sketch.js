@@ -1,14 +1,14 @@
-import p5 from 'https://cdn.jsdelivr.net/npm/p5@2.0.3/lib/p5.esm.js';
-import { addonTemplate } from '../../../dist/addonTemplate.esm.js'
+import p5 from "https://cdn.jsdelivr.net/npm/p5@2.2.3/lib/p5.esm.js";
+import { addonTemplate } from "../../../dist/p5.libprocessing.esm.js";
 
 p5.registerAddon(addonTemplate);
 
-const sketch = function(p) {
-  p.setup = function() {
-    p.createCanvas(400, 400, 'custom-renderer');
+const sketch = function (p) {
+  p.setup = function () {
+    p.createCanvas(400, 400, "libprocessing");
   };
 
-  p.draw = function() {
+  p.draw = function () {
     p.background(200);
   };
 };
