@@ -1,19 +1,23 @@
-import { defineConfig } from 'rolldown';
+import { defineConfig } from "rolldown";
 
 export default defineConfig([
-	{
-	  input: 'src/main.js',
-	  output: {
-      file: 'dist/p5.libprocessing.min.js',
-			format: 'iife',
-			minify: true
-	  }
-	},
-	{
-    input: 'src/main.js',
+  {
+    input: "src/main.js",
+    platform: "node",
     output: {
-      file: 'dist/p5.libprocessing.esm.js',
-      format: 'esm'
-    }
-  }
+      file: "dist/p5.libprocessing.min.js",
+      format: "iife",
+      minify: true,
+    },
+    external: [/p5\.libprocessing\.js-ffi\..*\.node/],
+  },
+  {
+    input: "src/main.js",
+    platform: "node",
+    output: {
+      file: "dist/p5.libprocessing.esm.js",
+      format: "esm",
+    },
+    external: [/p5\.libprocessing\.js-ffi\..*\.node/],
+  },
 ]);
