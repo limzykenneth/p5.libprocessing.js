@@ -38,7 +38,7 @@ pub struct Renderer {
   pub height: u32,
   ctx: GlfwContext,
   canvas: Entity,
-  graphics: Entity
+  graphics: Entity,
 }
 
 #[napi]
@@ -55,7 +55,7 @@ impl Renderer {
       height: height,
       ctx: glfw_ctx,
       canvas: surface,
-      graphics: graphics
+      graphics: graphics,
     }
   }
 
