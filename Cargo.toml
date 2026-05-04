@@ -7,6 +7,7 @@ version = "0.1.0"
 
 [lib]
 crate-type = ["cdylib"]
+path = "ffi/src/lib.rs"
 
 [dependencies]
 bevy = { git = "https://github.com/processing/bevy", branch = "main", features = [
@@ -17,7 +18,7 @@ bevy = { git = "https://github.com/processing/bevy", branch = "main", features =
 ] }
 napi = { version = "3.0.0", features = ["anyhow"] }
 napi-derive = "3.0.0"
-processing = { version = "0.0.1", path = "../../../libprocessing", features = [
+processing = { version = "0.0.1", path = "../libprocessing", features = [
   "wayland",
 ] }
 

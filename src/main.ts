@@ -1,4 +1,4 @@
-import libprocessing from "p5.libprocessing.js-ffi";
+import libprocessing from "../ffi/dist";
 
 export function addonTemplate(p5, fn, lifecycles) {
   // class LibprocessingRenderer {
@@ -52,7 +52,7 @@ export function addonTemplate(p5, fn, lifecycles) {
   libprocessing.Renderer.prototype.states = {
     strokeColor: "black",
     fillColor: "white",
-    rectMode: "center",
+    rectMode: "center"
   };
   p5.renderers["libprocessing"] = libprocessing.Renderer;
 }
