@@ -1,9 +1,6 @@
 import libprocessing from "p5.libprocessing.js-ffi";
 
 export function addonTemplate(p5, fn, lifecycles) {
-  // console.log(libprocessing.plus100(10));
-  // libprocessing.background();
-
   // class LibprocessingRenderer {
   //   width;
   //   height;

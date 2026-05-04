@@ -1,5 +1,5 @@
 import p5 from "p5/node";
-import { addonTemplate } from "../../dist/p5.libprocessing.esm.js";
+import { addonTemplate } from "../../dist/p5.libprocessing.mjs";
 
 p5.registerAddon(addonTemplate);
 

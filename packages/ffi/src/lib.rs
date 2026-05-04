@@ -38,8 +38,7 @@ pub struct Renderer {
   pub height: u32,
   ctx: GlfwContext,
   canvas: Entity,
-  graphics: Entity,
-  // pub states: RendererStates
+  graphics: Entity
 }
 
 #[napi]
@@ -56,12 +55,7 @@ impl Renderer {
       height: height,
       ctx: glfw_ctx,
       canvas: surface,
-      graphics: graphics,
-      // states: RendererStates {
-      // 	stroke_color: "black".to_string(),
-      // 	fill_color: "white".to_string(),
-      // 	rect_mode: "center".to_string()
-      // }
+      graphics: graphics
     }
   }
 
@@ -90,9 +84,6 @@ impl Renderer {
 
   #[napi]
   pub fn background(&mut self, r: f64, g: f64, b: f64) -> Result<()> {
-    // while self.ctx.poll_events() {
-    //     graphics_begin_draw(self.graphics).map_err(P5Error::from)?;
-
     graphics_record_command(
       self.graphics,
       DrawCommand::Fill(bevy::color::Color::srgb(r as f32, g as f32, b as f32)),
@@ -110,9 +101,6 @@ impl Renderer {
       },
     )
     .map_err(P5Error::from)?;
-
-    //     graphics_end_draw(self.graphics).map_err(P5Error::from)?;
-    // }
 
     Ok(())
   }
@@ -140,48 +128,3 @@ impl Renderer {
     Ok(())
   }
 }
-
-// #[napi]
-// pub fn background() {
-// 	println!("background!!");
-// }
-
-// #[napi]
-// pub fn rect() {
-
-// }
-
-// #[napi]
-// pub fn create_canvas(width: u32, height: u32) -> Result<()> {
-// 	let mut glfw_ctx = GlfwContext::new(width, height).map_err(P5Error::from)?;
-// 	init(Config::default()).map_err(P5Error::from)?;
-// 	let surface = glfw_ctx.create_surface(width, height).map_err(P5Error::from)?;
-// 	let graphics = graphics_create(surface, width, height, TextureFormat::Rgba16Float).map_err(P5Error::from)?;
-// 	let box_geo = geometry_box(100.0, 100.0, 100.0).map_err(P5Error::from)?;
-
-// 	graphics_mode_3d(graphics).map_err(P5Error::from)?;
-// 	transform_set_position(graphics, Vec3::new(100.0, 100.0, 100.0)).map_err(P5Error::from)?;
-// 	transform_look_at(graphics, Vec3::new(0.0, 0.0, 0.0)).map_err(P5Error::from)?;
-
-// 	let mut angle: f32 = 0.0;
-
-//     while glfw_ctx.poll_events() {
-//         graphics_begin_draw(graphics).map_err(P5Error::from)?;
-
-//         graphics_record_command(
-//             graphics,
-//             DrawCommand::BackgroundColor(bevy::color::Color::srgb(0.1, 0.1, 0.15)),
-//         ).map_err(P5Error::from)?;
-
-//         graphics_record_command(graphics, DrawCommand::PushMatrix).map_err(P5Error::from)?;
-//         graphics_record_command(graphics, DrawCommand::Rotate { angle }).map_err(P5Error::from)?;
-//         graphics_record_command(graphics, DrawCommand::Geometry(box_geo)).map_err(P5Error::from)?;
-//         graphics_record_command(graphics, DrawCommand::PopMatrix).map_err(P5Error::from)?;
-
-//         graphics_end_draw(graphics).map_err(P5Error::from)?;
-
-//         angle += 0.02;
-//     }
-
-// 	Ok(())
-// }
