@@ -109,12 +109,6 @@ impl Renderer {
   pub fn rect(&self, args: Vec<f64>) -> Result<()> {
     graphics_record_command(
       self.graphics,
-      DrawCommand::Fill(bevy::color::Color::srgb(0.85, 0.3 / 24.0, 0.2)),
-    )
-    .map_err(P5Error::from)?;
-
-    graphics_record_command(
-      self.graphics,
       DrawCommand::Rect {
         x: (args[0] + args[2] / 2.0) as f32,
         y: (args[1] + args[3] / 2.0) as f32,
@@ -126,5 +120,16 @@ impl Renderer {
     .map_err(P5Error::from)?;
 
     Ok(())
+  }
+
+  #[napi]
+  pub fn fill(&self, args: Vec<f64>) -> Result<()> {
+  	graphics_record_command(
+      self.graphics,
+      DrawCommand::Fill(bevy::color::Color::srgb(args[0] as f32, args[1] as f32, args[2] as f32)),
+    )
+    .map_err(P5Error::from)?;
+
+	Ok(())
   }
 }

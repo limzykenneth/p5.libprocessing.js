@@ -9,8 +9,9 @@ const sketch = function (p) {
   };
 
   p.draw = function () {
-    p.background(1, 1, 0);
+    p.background(255, 255, 0);
     p.rect(10, 10, 100, 100);
+    p.fill(0, 0, 255);
     p.rect(p.frameCount % p.width, p.frameCount % p.height, 100, 100);
   };
 };
